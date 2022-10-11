@@ -17,9 +17,11 @@ print(phone[-4:])
 movie_type = ['코미디', '액션', '로맨스']
 
 # A-4. movie_type의 변수에 '스릴러' 장르를 추가
-movie_type.append('스릴러')
+movie_type += ['스릴러']
+movie_type = movie_type + ['스릴러']
 print(movie_type)
-# movie_type += ['스릴러']
+
+# movie_type.append('스릴러')
 # print(movie_type)
 
 # A-5. number 변수에 '880616-1413429' 값을 저장
@@ -41,6 +43,7 @@ products = {
     '사이다': 1500,
     '물': 800,
 }
+print(products['콜라'])
 print(products)
 
 # A-10. application 변수에 리스트 형태의 1,2,3,4,5,1,2,3,4,5 값을 저장
@@ -72,6 +75,7 @@ print(year % 2)
 
 # B-3. 임의의 원화를 입력 시 1000원, 500원, 100원과 잔돈을 계산하는 기능을 구현하시오
 krw = 15200
+krw = int(input('돈을 넣어주세요: '))
 
 krw1000 = krw // 1000
 _krw1000 = krw % 1000
