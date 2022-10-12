@@ -15,8 +15,8 @@
 # C : 70 이상 80 미만
 # D : 60 이상 70 미만
 # F : 60 미만
-# score = 90
-score = int(input('점수를 입력해주세요 : '))
+score = 90
+# score = int(input('점수를 입력해주세요 : '))
 
 if score >= 90:
     print('A')
@@ -45,8 +45,13 @@ print(f'random_number : {random_number}')
 
 print('[업다운 게임] 0~50까지 숫자 중 입력해주세요.')
 
+game_count = 0
 while True:
     input_number = int(input('숫자를 입력해주세요 : '))
+    game_count = game_count + 1
+
+    if input_number == 0:
+        break
 
     if random_number == input_number:
         print('정답')
@@ -55,6 +60,8 @@ while True:
         print('업')
     else:
         print('다운')
+
+    print(f'Game count : {game_count}')
 
 # 3. 자판기 소프트웨어를 구현하시오.
 # 자판기 상품 콜라 1500원 사이다 1500원 물 800원
