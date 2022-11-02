@@ -84,6 +84,7 @@
 1. 파일 -> 설정 -> 도구 -> 터미널 -> 애플리케이션 설정 -> 쉘 경로 -> powershell.exe 선택
 
 # 참고 코드
+## 실습코드
 #### posts/models.py
 ```python
 from django.db import models
@@ -108,4 +109,29 @@ from .models import Post
 class PostAdmin(admin.ModelAdmin):
     pass
 ```
+## QuerySet API
+```Post```는 모델(Model) 클래스 
+#### 데이터 생성 - create()
+```Post.objects.create(title='게시글 제목')```
 
+#### 데이터 수정 - update()
+```Post.objects.update()```
+
+#### 데이터 삭제 - delete()
+```Post.objects.delete()```
+
+#### 데이터 전체 조회 - all()
+```Post.objects.all()```
+
+#### 데이터 단일 조회 - get()
+```Post.objects.get()```
+
+#### 데이터 필터 조회 - filter()
+```Post.objects.filter()```
+
+#### 데이터 저장
+```python
+post = Post.objects.get(id=3)
+post.title = '제목 수정'
+post.save()
+```
