@@ -67,3 +67,30 @@
 
 ## 파이참 터미널, 파워쉘 연결
 1. 파일 -> 설정 -> 도구 -> 터미널 -> 애플리케이션 설정 -> 쉘 경로 -> powershell.exe 선택
+
+# 참고 코드
+posts/models.py
+```python
+from django.db import models
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+
+class Post(models.Model):
+    title = models.CharField('제목', max_length=250)
+    content = models.TextField('내용')
+    writer = models.ForeignKey(User, models.CASCADE)
+
+```
+posts/admin.py
+```python
+from django.contrib import admin
+from .models import Post
+
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    pass
+```
+
