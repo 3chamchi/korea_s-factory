@@ -50,6 +50,9 @@
 * (Windows) ```.\venv\Scrips\activate```
 * (Mac) ```soruce venv/bin/activate```
 
+#### 가상환경 나오기
+* ```deacticate```
+
 ## 장고 명령어
 #### 프로젝트 생성  
 * ```django-admin startproject config .```
