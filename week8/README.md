@@ -1,5 +1,11 @@
 파이참 장고 설정, 장고 명령어 등
 ---
+# 목차
+1. [파이참 장고 설정](#파이참_장고_설정)
+2. [명령어](#명령어)
+3. [참고 코드](#참고_코드)
+
+
 # 파이참 장고 설정
 #### 파이참 프로젝트 디렉토리 열기
 * 프로젝트 디렉토리 열기, ```manage.py```가 있는 디렉토리
@@ -8,6 +14,12 @@
 * 파일 -> 설정 -> 프로젝트 -> Python 인터프리터 -> Python 인터프리터 설정
 * 프로젝트 디렉토리에 있는 ```venv```안의 ```python``` 선택
 * 없는 경우 가상환경 생성 후 선택
+
+#### run / configuration 설정
+* Edit Configuration(구성편집) 설정
+* 구성 -> 스크립트 경로 : ```/korea_s-factory/week8/manage.py``` ```manage.py```파일 선택
+* 구성 -> 매개변수(P) : ```runserver```
+* 환경 -> 환경 변수(E) : ```PYTHONUNBUFFERED=1```
 
 # 명령어
 ## 윈도우 파워쉘, 터미널 명령어
@@ -69,7 +81,7 @@
 1. 파일 -> 설정 -> 도구 -> 터미널 -> 애플리케이션 설정 -> 쉘 경로 -> powershell.exe 선택
 
 # 참고 코드
-posts/models.py
+#### posts/models.py
 ```python
 from django.db import models
 from django.contrib.auth import get_user_model
@@ -83,7 +95,7 @@ class Post(models.Model):
     writer = models.ForeignKey(User, models.CASCADE)
 
 ```
-posts/admin.py
+#### posts/admin.py
 ```python
 from django.contrib import admin
 from .models import Post
