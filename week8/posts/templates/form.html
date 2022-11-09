@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Form</title>
+</head>
+<body>
+<h1>글 작성</h1>
+<form action="{% url 'create' %}" method="POST">
+    {% csrf_token %}
+    <div>
+        <label>제목</label>
+        <input type="text" name="title">
+    </div>
+    <div>
+        <label>내용</label>
+        <textarea name="content"></textarea>
+    </div>
+    <div>
+        <label>태그</label>
+        <input type="text" name="tag">
+    </div>
+    <input type="submit" value="추가하기">
+</form>
+</body>
+</html>
+
