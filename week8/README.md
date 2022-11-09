@@ -1,11 +1,5 @@
 파이참 장고 설정, 장고 명령어 등
 ---
-# 목차
-1. [파이참 장고 설정](#파이참-장고-설정)
-2. [명령어](#명령어)
-3. [참고 코드](#참고-코드)
-
-
 # 파이참 장고 설정
 #### 파이참 프로젝트 디렉토리 열기
 * 프로젝트 디렉토리 열기, ```manage.py```가 있는 디렉토리
@@ -14,12 +8,6 @@
 * 파일 -> 설정 -> 프로젝트 -> Python 인터프리터 -> Python 인터프리터 설정
 * 프로젝트 디렉토리에 있는 ```venv```안의 ```python``` 선택
 * 없는 경우 가상환경 생성 후 선택
-
-#### run / configuration 설정
-* Edit Configuration(구성편집) 설정
-* 구성 -> 스크립트 경로 : ```/korea_s-factory/week8/manage.py``` ```manage.py```파일 선택
-* 구성 -> 매개변수(P) : ```runserver```
-* 환경 -> 환경 변수(E) : ```PYTHONUNBUFFERED=1```
 
 # 명령어
 ## 윈도우 파워쉘, 터미널 명령어
@@ -49,9 +37,6 @@
 * 가상환경 접속 후 ```(venv)``` 가상환경명을 접속 확인
 * (Windows) ```.\venv\Scrips\activate```
 * (Mac) ```soruce venv/bin/activate```
-
-#### 가상환경 나오기
-* ```deacticate```
 
 ## 장고 명령어
 #### 프로젝트 생성  
@@ -84,8 +69,7 @@
 1. 파일 -> 설정 -> 도구 -> 터미널 -> 애플리케이션 설정 -> 쉘 경로 -> powershell.exe 선택
 
 # 참고 코드
-## 실습코드
-#### posts/models.py
+posts/models.py
 ```python
 from django.db import models
 from django.contrib.auth import get_user_model
@@ -99,7 +83,7 @@ class Post(models.Model):
     writer = models.ForeignKey(User, models.CASCADE)
 
 ```
-#### posts/admin.py
+posts/admin.py
 ```python
 from django.contrib import admin
 from .models import Post
@@ -109,29 +93,4 @@ from .models import Post
 class PostAdmin(admin.ModelAdmin):
     pass
 ```
-## QuerySet API
-```Post```는 모델(Model) 클래스 
-#### 데이터 생성 - create()
-```Post.objects.create(title='게시글 제목')```
 
-#### 데이터 수정 - update()
-```Post.objects.update()```
-
-#### 데이터 삭제 - delete()
-```Post.objects.delete()```
-
-#### 데이터 전체 조회 - all()
-```Post.objects.all()```
-
-#### 데이터 단일 조회 - get()
-```Post.objects.get()```
-
-#### 데이터 필터 조회 - filter()
-```Post.objects.filter()```
-
-#### 데이터 저장
-```python
-post = Post.objects.get(id=3)
-post.title = '제목 수정'
-post.save()
-```

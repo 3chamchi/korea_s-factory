@@ -18,4 +18,3 @@ class Post(models.Model):
     )
     tag = models.CharField(max_length=30)
 
-
