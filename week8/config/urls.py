@@ -11,10 +11,12 @@ urlpatterns = [
 
     path('', list, name='list'),
     path('<int:id>/', detail, name='detail'),
+
     path('<int:id>/edit/', edit, name='edit'),
     path('<int:id>/update/', update, name='update'),
-    path('<int:id>/confirm-delete/', confirm_delete, name='confirm-delete'),
-    path('<int:id>/delete/', delete, name='delete'),
+
+    path('<int:id>/confirm-delete/', confirm_delete, name='confirm_delete'),
+    path('<int:id>/delete/', delete, name='delete')
 ]
 
 

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from posts.models import Post
 from django.urls import reverse
+
+from posts.models import Post
 
 
 # Create Form HTML 응답
@@ -51,39 +52,42 @@ def detail(request, id):
     return render(request, 'detail.html', data)
 
 
-from django.urls import reverse
+# 기능 구현 순서 M -> V -> URL -> T
+
+# 업데이트 1. 수정을 위한 HTML 응답
 def edit(request, id):
-    post = Post.objects.get(id=id)
+    # 1. 데이터 조회
+    post = Post.objects.get(id=id)  # 데이터베이스에서 데이터 조회
     data = {'post': post}
-    return render(request, 'form.html', data)
+    # 2. HTML 응답
+    return render(request, 'form.html', data)  # HTML 응답
 
 
+# 업데이트 2. 데이터 수정
 def update(request, id):
-    post = Post.objects.get(id=id)
-    post.title = request.POST['title']
-    post.content = request.POST['content']
-    post.tag = request.POST['tag']
-    post.save()
-    return redirect(reverse('detail', kwargs={'id': id}))
+    # 1. 데이터 조회
+    post = Post.objects.get(id=id)  # 데이터베이스에서 데이터 조회
+    # 2. 데이터 저장
+    post.title = request.POST['title']  # 클라이언트가 보낸 title 덮어쓰기
+    post.content = request.POST['content']  # 클라이언트가 보낸 content 덮어쓰기
+    post.tag = request.POST['tag']  # 클라이언트가 보낸 tag 덮어쓰기
+    post.save()  # 데이터베이스에 데이터 갱신 처리 / 실제 데이터베이스 데이터 수정
+    # 3. 리다이렉트 응답
+    return redirect(reverse('detail', kwargs={'id': post.id}))
 
+# 기능 구현 순서 M -> V -> URL -> T
+# 삭제 1. 삭제 여부 확인
 def confirm_delete(request, id):
-    post = Post.objects.get(id=id)
-    data = {'post': post}
-    return render(request, 'confirm_delete.html', data)
+    # 1. 데이터 조회
+    post = Post.objects.get(id=id)  # 데이터베이스에서 데이터 조회
+    # 2. HTML 응답
+    return render(request, 'confirm_delete.html', {'post': post})
 
+# 삭제 2. 데이터 삭제
 def delete(request, id):
-    post = Post.objects.get(id=id)
-    post.delete()
+    # 1. 데이터 조회
+    post = Post.objects.get(id=id)  # 데이터베이스 데이터 조회
+    # 2. 데이터 삭제
+    post.delete()  # 데이터베이스 데이터 삭제
+    # 3. 응답 / 리다이렉트
     return redirect(reverse('list'))
-
-
-
-
-
-
-
-
-
-
-
-
