@@ -16,8 +16,8 @@
 - [x] 5주차 - 클래스, 모듈
 - [x] 6주차 - Django란, Django 프로젝트 생성, MTV
 - [x] 7주차 - View, Templates, url 실습, MTV 실습
-- [ ] 8주차 - DB, ORM
-- [ ] 9주차 - Create, Read
+- [x] 8주차 - DB, ORM
+- [x] 9주차 - Create, Read
 - [ ] 10주차 - Update, Delete
 - [ ] 11주차 - Templates, Bootstrap
 - [ ] 12주차 - Deploy
