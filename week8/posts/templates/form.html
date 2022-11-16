@@ -5,24 +5,28 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/create/" method="POST">
-    {% csrf_token %}
-<!-- title, content, tag -->
-    <div>
-        <label>제목</label>
-        <input type="text" name="title"/>
-    </div>
-    <div>
-        <label>내용</label>
-        <input type="text" name="content"/>
-    </div>
-    <div>
-        <label>태그</label>
-        <input type="text" name="tag"/>
-    </div>
-    <input type="submit">
-</form>
+{% if post %}
+    <form action="{% url 'update' post.id %}" method="POST">
+{% else %}
+    <form action="{% url 'create' %}" method="POST">
+{% endif %}
+        {% csrf_token %}
+        <!-- title, content, tag -->
+        <div>
+            <label>제목</label>
+            <input type="text" name="title" value="{{ post.title }}"/>
+        </div>
+        <div>
+            <label>내용</label>
+            <input type="text" name="content" value="{{ post.content }}"/>
+        </div>
+        <div>
+            <label>태그</label>
+            <input type="text" name="tag" value="{{ post.tag }}"/>
+        </div>
+        <input type="submit">
+    </form>
 
-<a href="{% url 'list' %}">목록으로</a>
+    <a href="{% url 'list' %}">목록으로</a>
 </body>
 </html>
