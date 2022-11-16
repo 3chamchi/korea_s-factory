@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>게시글을 삭제하시겠습니까? 삭제된 데이터는 복구할 수 없습니다.</p>
+<form action="{% url 'delete' post.id %}" method="POST">
+    {% csrf_token %}
+    <p>{{ post.id }} / {{ post.title }}</p>
+    <p>{{ post.content }}</p>
+    <p>{{ post.tag }}</p>
+    <input type="submit" value="삭제하기">
+</form>
+<div>
+    <a href="{% url 'list' %}">목록으로</a>
+    <a href="{% url 'detail' post.id %}">취소하기</a>
+</div>
+</body>
+</html>
+
+
+
+
+
+
