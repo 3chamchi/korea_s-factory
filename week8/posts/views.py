@@ -3,6 +3,14 @@ from django.urls import reverse
 
 from posts.models import Post
 
+# 기능 구현 순서 M -> V -> URL -> T
+# 부트스트랩 템플릿 index2.html 적용
+def index(request):
+    post_list = Post.objects.all()
+    data = {
+        'post_list': post_list
+    }
+    return render(request, 'index2.html', data)
 
 # Create Form HTML 응답
 def new(reqeust):

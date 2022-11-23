@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<p>제목 : {{ post.title }}</p>
-<p>내용 : {{ post.content}}</p>
-<p>태그 : {{ post.tag }}</p>
-<a href="/">목록보기</a>
-<a href="{% url 'edit' post.id %}">수정하기</a>
-<a href="{% url 'confirm_delete' post.id %}">삭제하기</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+게시글 입력
+{% endblock %}
+
+{% block content %}
+<main class="container">
+    <div class="row">
+        <h2>제목 : {{ post.title }}</h2>
+    </div>
+    <div class="row">
+        <p>내용 : {{ post.content}}</p>
+    </div>
+    <div class="row">
+        <p>태그 : {{ post.tag }}</p>
+    </div>
+    <div class="row">
+        <a class="col-lg-4 col-sm-12 btn btn-light" href="/">목록보기</a>
+        <a class="col-lg-4 col-sm-12 btn btn-light" href="{% url 'edit' post.id %}">수정하기</a>
+        <a class="col-lg-4 col-sm-12 btn btn-danger" href="{% url 'confirm_delete' post.id %}">삭제하기</a>
+    </div>
+</main>
+{% endblock %}
